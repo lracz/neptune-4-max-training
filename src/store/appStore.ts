@@ -53,7 +53,7 @@ function calculateLevel(xp: number): string {
     return 'Kezdő';
 }
 
-function calculateXPForModule(moduleId: number, failures: number): number {
+function calculateXPForModule(_moduleId: number, failures: number): number {
     const base = 200;
     const penalty = failures * 30;
     return Math.max(50, base - penalty); // Minimum 50 XP

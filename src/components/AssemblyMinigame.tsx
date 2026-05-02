@@ -107,7 +107,7 @@ export default function AssemblyMinigame() {
                                     <input
                                         type="checkbox"
                                         checked={safetyChecks.unattended}
-                                        onChange={(e) => setSafetyChecks(prev => ({ ...prev, unattended: e.target.checked }))}
+                                        onChange={(e) => setSafetyChecks((prev: any) => ({ ...prev, unattended: e.target.checked }))}
                                         className="w-5 h-5 accent-red-500 rounded cursor-pointer shrink-0 mt-0.5"
                                     />
                                     <span className="text-slate-700 text-sm font-medium">A nyomtatót soha nem hagyom felügyelet nélkül működés közben, vagy gondoskodom távfelügyeletről.</span>
@@ -116,7 +116,7 @@ export default function AssemblyMinigame() {
                                     <input
                                         type="checkbox"
                                         checked={safetyChecks.clear}
-                                        onChange={(e) => setSafetyChecks(prev => ({ ...prev, clear: e.target.checked }))}
+                                        onChange={(e) => setSafetyChecks((prev: any) => ({ ...prev, clear: e.target.checked }))}
                                         className="w-5 h-5 accent-red-500 rounded cursor-pointer shrink-0 mt-0.5"
                                     />
                                     <span className="text-slate-700 text-sm font-medium">Megbizonyosodtam róla, hogy a nyomtató mozgásterében nincs semmilyen akadályozó tárgy (pl. kábel, szerszám, táska).</span>
@@ -125,7 +125,7 @@ export default function AssemblyMinigame() {
                                     <input
                                         type="checkbox"
                                         checked={safetyChecks.empty}
-                                        onChange={(e) => setSafetyChecks(prev => ({ ...prev, empty: e.target.checked }))}
+                                        onChange={(e) => setSafetyChecks((prev: any) => ({ ...prev, empty: e.target.checked }))}
                                         className="w-5 h-5 accent-red-500 rounded cursor-pointer shrink-0 mt-0.5"
                                     />
                                     <span className="text-slate-700 text-sm font-medium">Ellenőriztem, hogy nem esett semmi a nyomtató mozgó alkatrészei vagy a fűtött asztal alá.</span>
@@ -134,7 +134,7 @@ export default function AssemblyMinigame() {
                                     <input 
                                         type="checkbox" 
                                         checked={safetyChecks.noTouch}
-                                        onChange={(e) => setSafetyChecks(prev => ({...prev, noTouch: e.target.checked}))}
+                                        onChange={(e) => setSafetyChecks((prev: typeof safetyChecks) => ({...prev, noTouch: e.target.checked}))}
                                         className="w-5 h-5 accent-red-500 rounded cursor-pointer shrink-0 mt-0.5" 
                                     />
                                     <span className="text-slate-700 text-sm font-medium">A nyomtatási felület (PEI lap) <strong>közepéhez sosem nyúlok puszta kézzel</strong> (a bőrzsír rontja a tapadást). A szélénél fogva viszont szabadon mozgatható!</span>
@@ -248,7 +248,7 @@ export default function AssemblyMinigame() {
                                     <input 
                                         type="checkbox" 
                                         checked={hardwareChecks.cable}
-                                        onChange={() => setHardwareChecks(prev => ({ ...prev, cable: !prev.cable }))}
+                                        onChange={() => setHardwareChecks((prev: any) => ({ ...prev, cable: !prev.cable }))}
                                         className="w-5 h-5 accent-teal-500 rounded cursor-pointer" 
                                     />
                                     <span className="group-hover:text-teal-700 transition-colors"><strong>Tápkábel</strong> bedugva a gépbe és a konnektorba</span>
@@ -257,7 +257,7 @@ export default function AssemblyMinigame() {
                                     <input 
                                         type="checkbox" 
                                         checked={hardwareChecks.switch}
-                                        onChange={() => setHardwareChecks(prev => ({ ...prev, switch: !prev.switch }))}
+                                        onChange={() => setHardwareChecks((prev: any) => ({ ...prev, switch: !prev.switch }))}
                                         className="w-5 h-5 accent-teal-500 rounded cursor-pointer" 
                                     />
                                     <span className="group-hover:text-teal-700 transition-colors">Hátoldali <strong>kapcsoló ON</strong> helyzetbe rakva (Piros kapcsoló)</span>
@@ -266,7 +266,7 @@ export default function AssemblyMinigame() {
                                     <input 
                                         type="checkbox" 
                                         checked={hardwareChecks.screen}
-                                        onChange={() => setHardwareChecks(prev => ({ ...prev, screen: !prev.screen }))}
+                                        onChange={() => setHardwareChecks((prev: any) => ({ ...prev, screen: !prev.screen }))}
                                         className="w-5 h-5 accent-teal-500 rounded cursor-pointer" 
                                     />
                                     <span className="group-hover:text-teal-700 transition-colors">A <strong>kijelző bekapcsolt</strong> és a főmenü látszik</span>
