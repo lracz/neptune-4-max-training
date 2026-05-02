@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# Neptune 4 Max - 3D Printing Education Application 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Egy interaktív, gamifikált oktatóalkalmazás, amely lépésről lépésre vezeti végig a felhasználókat az **Elegoo Neptune 4 Max** 3D nyomtató használatának alapjain. A projekt célja, hogy a laboratóriumi környezetben a hallgatók önállóan, mégis biztonságosan sajátíthassák el a gép kezelését.
 
-Currently, two official plugins are available:
+![App Screenshot](https://placehold.co/1200x600/1e293b/white?text=Neptune+4+Max+Training+App)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌟 Főbb Jellemzők
 
-## React Compiler
+- **Gamifikált Tanulás:** Tapasztalati pontok (XP), szintek és gyűjthető jelvények motiválják a felhasználót.
+- **Interaktív Modulok:** Valósághű szimulációk a szoftveres és hardveres lépésekhez.
+- **Biztonság az Első:** Kiemelt figyelmeztetések és kötelező biztonsági csekklisták.
+- **Mobil-barát:** Reszponzív kialakítás, hogy a nyomtató mellett állva is kényelmesen használható legyen.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📚 Oktatási Modulok
 
-## Expanding the ESLint configuration
+1.  **Összeszerelés & Csatlakozás:** Szalagkábel bekötése és hálózati (WiFi/LAN) konfiguráció.
+2.  **Fluidd UI Felfedezése:** Ismerkedés a Klipper-alapú webes felülettel és a makrókkal.
+3.  **Hibrid Asztalszintezés:** Előmelegítés, Automatikus Szintezés (ABL) és a precíz Z-Offset beállítása.
+4.  **Filament Betöltés:** A szál befűzése és a betöltési folyamat ellenőrzése.
+5.  **Szeletelés (Slicer):** STL modellek letöltése és G-Code generálása (Cura/OrcaSlicer útmutató).
+6.  **Első Nyomtatás & Baby-stepping:** A nyomtatás elindítása és az első réteg menet közbeni korrekciója.
+7.  **Levétel & Biztonság:** A kész munkadarab eltávolítása a PEI lapról és az asztal tisztítása.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Technológiai Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Framework:** [React](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- **Stílus:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animációk:** [Framer Motion](https://www.framer.com/motion/)
+- **Ikonok:** [Lucide React](https://lucide.dev/)
+- **Állapotkezelés:** [Zustand](https://docs.pmnd.rs/zustand/)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Telepítés és Futtatás
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Helyi futtatás:
+1. Klónozd a repozitóriót:
+   ```bash
+   git clone https://github.com/lracz/neptune-4-max-training.git
+   ```
+2. Telepítsd a függőségeket:
+   ```bash
+   npm install
+   ```
+3. Indítsd el a fejlesztői szervert:
+   ```bash
+   npm run dev
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Élesítés (Deployment):
+A projekt optimalizálva van **Vercel** vagy bármilyen statikus tárhelyre történő feltöltésre. A `dist` mappa tartalma bárhová másolható.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📖 Felhasználás a laborban
+A nyomtatókra érdemes **QR kódot** ragasztani, amely a következő paraméterrel nyitja meg az appot:
+`https://linked-app.com/?printer_id=GEP-01`
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+*Készült a modern 3D nyomtatási oktatás segítésére.*
