@@ -11,6 +11,7 @@ export default function AssemblyMinigame() {
 
     const [phase, setPhase] = useState<Phase>('safety');
     const [safetyChecks, setSafetyChecks] = useState({ unattended: false, clear: false, empty: false, noTouch: false });
+    const [hardwareChecks, setHardwareChecks] = useState({ cable: false, switch: false, screen: false });
     const [ribbonConnected, setRibbonConnected] = useState(false);
     const [wifiSSID, setWifiSSID] = useState('');
     const [wifiPassword, setWifiPassword] = useState('');
