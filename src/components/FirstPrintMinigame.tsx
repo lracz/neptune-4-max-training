@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '../store/appStore';
-import { Play, AlertTriangle, MoveDown, MoveUp, CheckCircle, Usb, Wifi, FileCode, X } from 'lucide-react';
+import { Play, AlertTriangle, MoveDown, MoveUp, CheckCircle, Usb, Wifi, FileCode } from 'lucide-react';
 import Confetti from 'react-confetti';
 
 export default function FirstPrintMinigame() {

@@ -49,7 +49,6 @@ export default function CompletionScreen() {
     const totalStars = Array.from({ length: 7 }, (_, i) => getModuleStars(i + 1)).reduce((a, b) => a + b, 0);
     const maxStars = 21;
     const totalTime = getTotalTime();
-    const totalFailures = Object.values(moduleFailures).reduce((a, b) => a + b, 0);
 
     return (
         <div className="w-full bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 relative">

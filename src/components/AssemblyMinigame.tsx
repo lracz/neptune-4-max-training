@@ -2,7 +2,7 @@ import { useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Confetti from 'react-confetti';
 import { useAppStore } from '../store/appStore';
-import { Wifi, Cable, Check, MonitorSmartphone, Router } from 'lucide-react';
+import { Wifi, Cable, Check, Router } from 'lucide-react';
 
 type Phase = 'safety' | 'ribbon' | 'network_choice' | 'wifi_setup' | 'lan_setup' | 'done';
 
@@ -11,7 +11,6 @@ export default function AssemblyMinigame() {
 
     const [phase, setPhase] = useState<Phase>('safety');
     const [safetyChecks, setSafetyChecks] = useState({ unattended: false, clear: false, empty: false, noTouch: false });
-    const [hardwareChecks, setHardwareChecks] = useState({ cable: false, switch: false, screen: false });
     const [ribbonConnected, setRibbonConnected] = useState(false);
     const [wifiSSID, setWifiSSID] = useState('');
     const [wifiPassword, setWifiPassword] = useState('');
