@@ -52,5 +52,19 @@ A projekt optimalizálva van **Vercel** vagy bármilyen statikus tárhelyre tör
 A nyomtatókra érdemes **QR kódot** ragasztani, amely a következő paraméterrel nyitja meg az appot:
 `https://linked-app.com/?printer_id=GEP-01`
 
+## ✍️ Készítette
+
+**Rácz László**
+
+Ez a projekt teljes egészében Rácz László munkája — a tervezéstől a fejlesztésen át a deployment-ig.
+
+## 📬 Kapcsolat
+
+Ha bármilyen kérdésed van az alkalmazással kapcsolatban, vagy hozzáférésre lenne szükséged a GitHub repozitóriumhoz, keress bátran:
+
+- **Név:** Rácz László
+- **Email:** [lasracz@gmail.com](mailto:lasracz@gmail.com)
+- **GitHub:** [github.com/lracz](https://github.com/lracz)
+
 ---
 *Készült a modern 3D nyomtatási oktatás segítésére.*

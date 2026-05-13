@@ -209,6 +209,13 @@ function App() {
       <TroubleshootingModal isOpen={isTroubleshootingOpen} onClose={() => setIsTroubleshootingOpen(false)} />
       <BadgePopup />
       <ResourcesMenu />
+
+      {/* Footer */}
+      <footer className="w-full text-center py-4 mt-8 border-t border-slate-100">
+        <p className="text-xs text-slate-400">
+          Készítette: <span className="font-semibold text-slate-500">Rácz László</span> · <a href="mailto:lasracz@gmail.com" className="hover:text-teal-500 transition-colors">lasracz@gmail.com</a>
+        </p>
+      </footer>
     </div>
   );
 }
