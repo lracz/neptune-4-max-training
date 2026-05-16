@@ -79,7 +79,7 @@ function App() {
           </div>
 
           {/* ===== NAVIGATION: Steps with Stars ===== */}
-          <div className="hidden lg:flex gap-1.5">
+          <div className="hidden md:flex gap-1.5 overflow-x-auto no-scrollbar py-1">
             {STEPS.map((step) => {
               const isCompleted = completedSteps.includes(step.id);
               const isActive = currentStep === step.id;
@@ -90,7 +90,7 @@ function App() {
                   key={step.id}
                   onClick={() => goToStep(step.id)}
                   disabled={!isCompleted && step.id > currentStep}
-                  className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all 
+                  className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all shrink-0
                     ${isActive ? 'bg-teal-50 text-teal-700 shadow-sm border border-teal-100' : 'text-slate-400 hover:bg-slate-50'}
                     ${!isCompleted && step.id > currentStep ? 'opacity-50 cursor-not-allowed' : ''}
                   `}
@@ -118,7 +118,7 @@ function App() {
             {allCompleted && (
               <button
                   onClick={() => goToStep(8)}
-                  className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all 
+                  className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all shrink-0
                     ${currentStep === 8 ? 'bg-teal-50 text-teal-700 shadow-sm border border-teal-100' : 'text-slate-400 hover:bg-slate-50'}`}
                 >
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mb-1
@@ -132,14 +132,23 @@ function App() {
         </div>
 
         {/* Mobile Score Bar */}
-        <div className="sm:hidden flex items-center justify-center gap-4 px-4 pb-3">
+        <div className="md:hidden flex items-center justify-between gap-4 px-4 pb-3">
+          <div className="flex items-center gap-3">
+             <div className="flex items-center gap-1.5 bg-slate-100 px-2 py-1 rounded-lg border border-slate-200">
+                <Target className="w-3.5 h-3.5 text-blue-500" />
+                <span className="font-mono font-bold text-xs">{totalScore}</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-purple-50 px-2 py-1 rounded-lg border border-purple-200">
+                <Zap className="w-3.5 h-3.5 text-purple-500" />
+                <span className="font-mono font-bold text-xs text-purple-700">{xp} XP</span>
+              </div>
+          </div>
           <div className="flex flex-col items-end gap-1">
-            <div className="flex items-center gap-1 sm:gap-2">
-              <div className="text-xs sm:text-sm font-bold text-slate-400">Haladás</div>
-              <div className="text-sm sm:text-base font-black text-slate-800">{currentStep} / {STEPS.length}</div>
+            <div className="flex items-center gap-1">
+              <div className="text-[10px] font-bold text-slate-400 uppercase">Modul</div>
+              <div className="text-xs font-black text-slate-800">{currentStep} / {STEPS.length}</div>
             </div>
-            {/* Simple Mobile Progress Bar */}
-            <div className="w-24 sm:w-32 h-1.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
+            <div className="w-20 h-1 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
               <motion.div 
                 className="h-full bg-teal-500"
                 initial={{ width: 0 }}

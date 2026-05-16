@@ -26,37 +26,37 @@ export default function BedLevelingMinigame() {
     };
 
     return (
-        <div className="w-full bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 p-4 sm:p-10 relative">
+        <div className="w-full bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 p-4 sm:p-6 md:p-10 relative">
             {isDone && <Confetti width={typeof window !== 'undefined' ? window.innerWidth : 800} height={typeof window !== 'undefined' ? window.innerHeight : 600} recycle={false} numberOfPieces={300} />}
 
-            <div className="flex justify-between items-center mb-8 border-b border-slate-100 pb-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-slate-100 pb-6 gap-4">
                 <div>
-                    <h2 className="text-3xl font-bold text-slate-800">Szintezés és Z-Offset</h2>
-                    <p className="text-slate-500 mt-2 max-w-lg">
+                    <h2 className="text-xl sm:text-3xl font-bold text-slate-800">Szintezés és Z-Offset</h2>
+                    <p className="text-sm text-slate-500 mt-2 max-w-lg">
                         Állítsuk be a tökéletes első réteghez szükséges alapokat az Automatikus Szintezéssel (ABL).
                     </p>
                 </div>
 
                 {/* Phase Timeline Indicator */}
-                <div className="hidden sm:flex items-center gap-3 text-sm font-semibold">
+                <div className="flex items-center gap-3 text-[10px] sm:text-sm font-semibold">
                     <div className={`flex flex-col items-center gap-2 ${phase === 'preheat' ? 'text-orange-600' : 'text-slate-400'}`}>
-                        <div className={`p-2 rounded-full ${phase === 'preheat' ? 'bg-orange-100' : 'bg-slate-100'}`}><Flame className="w-5 h-5" /></div>
+                        <div className={`p-1.5 sm:p-2 rounded-full ${phase === 'preheat' ? 'bg-orange-100' : 'bg-slate-100'}`}><Flame className="w-4 h-4 sm:w-5 sm:h-5" /></div>
                         Előfűtés
                     </div>
-                    <div className="w-5 h-1 bg-slate-200 rounded-full" />
+                    <div className="w-4 sm:w-5 h-1 bg-slate-200 rounded-full" />
                     <div className={`flex flex-col items-center gap-2 ${phase === 'abl' ? 'text-teal-600' : 'text-slate-400'}`}>
-                        <div className={`p-2 rounded-full ${phase === 'abl' ? 'bg-teal-100' : 'bg-slate-100'}`}><ScanLine className="w-5 h-5" /></div>
+                        <div className={`p-1.5 sm:p-2 rounded-full ${phase === 'abl' ? 'bg-teal-100' : 'bg-slate-100'}`}><ScanLine className="w-4 h-4 sm:w-5 sm:h-5" /></div>
                         Auto Level
                     </div>
-                    <div className="w-5 h-1 bg-slate-200 rounded-full" />
+                    <div className="w-4 sm:w-5 h-1 bg-slate-200 rounded-full" />
                     <div className={`flex flex-col items-center gap-2 ${phase === 'zoffset' || phase === 'done' ? 'text-purple-600' : 'text-slate-400'}`}>
-                        <div className={`p-2 rounded-full ${phase === 'zoffset' || phase === 'done' ? 'bg-purple-100' : 'bg-slate-100'}`}><ArrowDownToLine className="w-5 h-5" /></div>
+                        <div className={`p-1.5 sm:p-2 rounded-full ${phase === 'zoffset' || phase === 'done' ? 'bg-purple-100' : 'bg-slate-100'}`}><ArrowDownToLine className="w-4 h-4 sm:w-5 sm:h-5" /></div>
                         Z-Offset
                     </div>
                 </div>
             </div>
 
-            <div className="min-h-[400px] flex items-center justify-center">
+            <div className="min-h-[350px] sm:min-h-[400px] flex items-center justify-center">
                 <AnimatePresence mode="wait">
 
                     {/* ===== PHASE 0: Pre-heat ===== */}
@@ -66,10 +66,10 @@ export default function BedLevelingMinigame() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, x: -20 }}
-                            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full"
+                            className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center w-full"
                         >
                             {/* LEFT: Image */}
-                            <div className="w-full h-full min-h-[300px] bg-slate-100 rounded-2xl border border-slate-200 overflow-hidden shadow-inner hidden md:block">
+                            <div className="w-full h-full min-h-[250px] sm:min-h-[300px] bg-slate-100 rounded-2xl border border-slate-200 overflow-hidden shadow-inner hidden md:block">
                                 <img
                                     src="/images/modul4_temp_menu.jpg"
                                     alt="Előmelegítés a Prepare menüben"
@@ -79,33 +79,28 @@ export default function BedLevelingMinigame() {
                             </div>
 
                             {/* RIGHT: UI */}
-                            <div className="bg-orange-50 border border-orange-200 p-8 rounded-2xl w-full text-center shadow-sm">
-                                <div className="w-16 h-16 bg-orange-100 text-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                    <Flame className="w-8 h-8" />
+                            <div className="bg-orange-50 border border-orange-200 p-6 sm:p-8 rounded-2xl w-full text-center shadow-sm">
+                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 text-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <Flame className="w-6 h-6 sm:w-8 sm:h-8" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-700 mb-2">0. Asztal Előmelegítése</h3>
-                                <p className="text-sm text-slate-500 mb-4">
+                                <h3 className="text-lg sm:text-xl font-bold text-slate-700 mb-2">0. Asztal Előmelegítése</h3>
+                                <p className="text-xs sm:text-sm text-slate-500 mb-4">
                                     <strong>FONTOS!</strong> Szintezés előtt az asztalt mindig elő kell melegíteni a nyomtatási hőmérsékletre (PLA: <strong>60°C</strong>). Ezt a kijelzőn a <strong>Prepare</strong> menüpont alatt találod meg!
                                 </p>
 
-                                <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 mb-3 flex items-start gap-2 text-left text-xs text-blue-800">
+                                <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 mb-3 flex items-start gap-2 text-left text-[10px] sm:text-xs text-blue-800">
                                     <span className="shrink-0 mt-0.5">ℹ️</span>
                                     <span>A menürendszer a nyomtató <strong>firmware verziójától</strong> függően eltérhet. Ha nem találod a "Prepare" menüpontot, kérdezd meg a laborvezetőt!</span>
                                 </div>
 
-                                <div className="bg-red-50 border border-red-300 rounded-xl p-3 mb-3 flex items-start gap-2 text-left text-xs text-red-800">
-                                    <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5 text-red-500" />
+                                <div className="bg-red-50 border border-red-300 rounded-xl p-3 mb-3 flex items-start gap-2 text-left text-[10px] sm:text-xs text-red-800">
+                                    <AlertTriangle className="w-3.5 h-3.5 shrink-0 mt-0.5 text-red-500" />
                                     <span>⚠️ <strong>ÉGÉSVESZÉLY!</strong> Az asztal felmelegítés után <strong>60°C</strong>-os lesz. <strong>Ne érintsd meg</strong> a fűtött felületet, mert égési sérülést okozhatsz! Csak a gép peremét fogd meg.</span>
-                                </div>
-
-                                <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-6 flex items-start gap-2 text-left text-xs text-amber-800">
-                                    <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5 text-amber-500" />
-                                    <span>Mielőtt elkezded, <strong>tisztítsd meg a fúvókát</strong> az esetleges filament maradékoktól – ezek befolyásolhatják a szintezés pontosságát!</span>
                                 </div>
 
                                 <button
                                     onClick={() => setPhase('abl')}
-                                    className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-bold transition-colors w-full shadow-md"
+                                    className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-bold transition-colors w-full shadow-md text-sm sm:text-base"
                                 >
                                     Megértettem, jöhet a Szintezés →
                                 </button>
@@ -120,10 +115,10 @@ export default function BedLevelingMinigame() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, x: -20 }}
-                            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full"
+                            className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center w-full"
                         >
                             {/* LEFT: Image */}
-                            <div className="w-full h-full min-h-[300px] bg-slate-100 rounded-2xl border border-slate-200 overflow-hidden shadow-inner hidden md:block">
+                            <div className="w-full h-full min-h-[250px] sm:min-h-[300px] bg-slate-100 rounded-2xl border border-slate-200 overflow-hidden shadow-inner hidden md:block">
                                 <img
                                     src="/images/modul_main_menu.jpg"
                                     alt="Auto Leveling a Főmenüben"
@@ -133,28 +128,18 @@ export default function BedLevelingMinigame() {
                             </div>
 
                             {/* RIGHT: UI */}
-                            <div className="bg-teal-50 border border-teal-200 p-8 rounded-2xl w-full text-center shadow-sm">
-                                <div className="w-16 h-16 bg-teal-100 text-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                    <ScanLine className="w-8 h-8" />
+                            <div className="bg-teal-50 border border-teal-200 p-6 sm:p-8 rounded-2xl w-full text-center shadow-sm">
+                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-teal-100 text-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <ScanLine className="w-6 h-6 sm:w-8 sm:h-8" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-700 mb-2">1. Auto Bed Leveling</h3>
-                                <p className="text-sm text-slate-500 mb-6">
-                                    A főmenüben (a kezdőképernyőn) található <strong>Level</strong> menüpontban indíthatod el az Automatikus Letapogatást. A gép szenzora felméri a fűtött asztal apró egyenetlenségeit, hogy szoftveresen korrigálja azokat.
+                                <h3 className="text-lg sm:text-xl font-bold text-slate-700 mb-2">1. Auto Bed Leveling</h3>
+                                <p className="text-xs sm:text-sm text-slate-500 mb-6">
+                                    A főmenüben található <strong>Level</strong> menüpontban indíthatod el az Automatikus Letapogatást. A gép szenzora felméri a fűtött asztal apró egyenetlenségeit.
                                 </p>
                                 
-                                <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 mb-3 flex items-start gap-2 text-left text-xs text-blue-800">
-                                    <span className="shrink-0 mt-0.5">ℹ️</span>
-                                    <span>Egyes firmware verziókban a "Level" menüpont neve <strong>"Auto Level"</strong> vagy <strong>"Bed Mesh"</strong> is lehet. A funkció ugyanaz, csak a felirat változhat frissítésenként.</span>
-                                </div>
-
-                                <div className="bg-white/60 border border-teal-200 rounded-xl p-3 mb-8 flex items-start gap-2 text-left text-xs text-teal-800">
-                                    <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5 text-teal-500" />
-                                    <span><strong>Tipp:</strong> ABL futtatása előtt érdemes a menüben a <strong>Z-offsetet lenullázni</strong>, hogy az új háló tiszta lappal induljon!</span>
-                                </div>
-
                                 <button
                                     onClick={() => setPhase('zoffset')}
-                                    className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-xl font-bold transition-colors w-full shadow-md"
+                                    className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-xl font-bold transition-colors w-full shadow-md text-sm sm:text-base"
                                 >
                                     Letapogatás kész, tovább a Z-Offsethez →
                                 </button>
@@ -169,10 +154,10 @@ export default function BedLevelingMinigame() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9 }}
-                            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full"
+                            className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center w-full"
                         >
                             {/* LEFT: Image */}
-                            <div className="w-full h-full min-h-[300px] bg-slate-100 rounded-2xl border border-slate-200 overflow-hidden shadow-inner hidden md:block">
+                            <div className="w-full h-full min-h-[250px] sm:min-h-[300px] bg-slate-100 rounded-2xl border border-slate-200 overflow-hidden shadow-inner hidden md:block">
                                 <img
                                     src="/images/modul3_z_offset_menu.jpg"
                                     alt="Z-offset állítása papírral"
@@ -182,34 +167,26 @@ export default function BedLevelingMinigame() {
                             </div>
 
                             {/* RIGHT: UI */}
-                            <div className="bg-slate-50 border border-slate-200 p-8 rounded-2xl w-full text-center shadow-sm">
-                                <h3 className="text-xl font-bold text-slate-700 mb-2">2. Végső Z-Offset</h3>
-                                <p className="text-sm text-slate-500 mb-4">
-                                    Használj egy A4-es papírt a fúvóka és az asztal között.
-                                    Állítsd a fejet lefelé (Z-offset), amíg a papír mozgatásakor határozott <strong>súrlódást</strong> nem érzel.
+                            <div className="bg-slate-50 border border-slate-200 p-4 sm:p-8 rounded-2xl w-full text-center shadow-sm">
+                                <h3 className="text-lg sm:text-xl font-bold text-slate-700 mb-2">2. Végső Z-Offset</h3>
+                                <p className="text-[10px] sm:text-sm text-slate-500 mb-4">
+                                    Használj egy papírt a fúvóka és az asztal között.
+                                    Állítsd a fejet, amíg <strong>súrlódást</strong> nem érzel.
                                 </p>
-                                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-8 text-left text-xs text-blue-800 space-y-2 shadow-sm">
-                                    <p>
-                                        <strong>Fontos:</strong> A tökéletes Z-offset értéke <strong>minden gépen és minden fúvókacsere után más!</strong> Soha ne próbálj egy fix számot (pl. -2.35) vakon beállítani, mindig a papír ellenállására hagyatkozz! (Ebben a szimulációban a mi virtuális gépünk értéke kb. -2.35 mm lesz.)
-                                    </p>
-                                    <p>
-                                        <strong>Mentőöv:</strong> Ha nyomtatás elején látod, hogy a réteg mégsem tapad, a <strong>Baby-stepping</strong> funkcióval menet közben is korrigálhatsz (ezt a 6. modulban gyakoroljuk). Ha pedig menthetetlen a réteg, azonnal <strong>állítsd le a gépet (Stop)</strong>, tisztítsd meg az asztalt, és állítsd be újra a Z-offsetet!
-                                    </p>
-                                </div>
 
-                                <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-8">
-                                    <div className="text-4xl font-mono font-bold text-slate-800 mb-6 bg-slate-100 py-4 rounded-lg inline-block px-8 border-b-4 border-slate-300">
+                                <div className="bg-white p-4 sm:p-6 rounded-xl border border-slate-200 shadow-sm mb-6 sm:mb-8">
+                                    <div className="text-2xl sm:text-4xl font-mono font-bold text-slate-800 mb-6 bg-slate-100 py-3 sm:py-4 rounded-lg inline-block px-6 sm:px-8 border-b-4 border-slate-300">
                                         {zOffset.toFixed(2)} mm
                                     </div>
 
                                     <div className="flex justify-center gap-2 sm:gap-4">
-                                        <button onClick={() => setZOffset(z => z + 0.05)} className="flex-1 sm:flex-none px-3 py-3 sm:px-6 sm:py-4 bg-slate-200 hover:bg-slate-300 rounded-xl font-bold text-base sm:text-lg flex flex-col items-center">
+                                        <button onClick={() => setZOffset(z => z + 0.05)} className="flex-1 sm:flex-none px-2 py-2 sm:px-6 sm:py-4 bg-slate-200 hover:bg-slate-300 rounded-xl font-bold text-sm sm:text-lg flex flex-col items-center">
                                             <span>+ 0.05</span>
-                                            <span className="text-[9px] sm:text-[10px] font-normal text-slate-500 uppercase">Távolabb</span>
+                                            <span className="text-[8px] sm:text-[10px] font-normal text-slate-500 uppercase">Távolabb</span>
                                         </button>
-                                        <button onClick={() => setZOffset(z => z - 0.05)} className="flex-1 sm:flex-none px-3 py-3 sm:px-6 sm:py-4 bg-slate-800 hover:bg-slate-900 text-white rounded-xl font-bold text-base sm:text-lg flex flex-col items-center">
+                                        <button onClick={() => setZOffset(z => z - 0.05)} className="flex-1 sm:flex-none px-2 py-2 sm:px-6 sm:py-4 bg-slate-800 hover:bg-slate-900 text-white rounded-xl font-bold text-sm sm:text-lg flex flex-col items-center">
                                             <span>- 0.05</span>
-                                            <span className="text-[9px] sm:text-[10px] font-normal text-slate-400 uppercase">Közelebb</span>
+                                            <span className="text-[8px] sm:text-[10px] font-normal text-slate-400 uppercase">Közelebb</span>
                                         </button>
                                     </div>
                                 </div>

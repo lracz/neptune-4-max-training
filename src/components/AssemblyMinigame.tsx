@@ -71,13 +71,13 @@ export default function AssemblyMinigame() {
     };
 
     return (
-        <div className="w-full bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 p-4 sm:p-10 relative">
+        <div className="w-full bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 p-4 sm:p-6 md:p-10 relative">
             {phase === 'done' && <Confetti width={typeof window !== 'undefined' ? window.innerWidth : 800} height={typeof window !== 'undefined' ? window.innerHeight : 600} recycle={false} numberOfPieces={300} />}
             {/* Header & Progress */}
             <div className="mb-6 border-b border-slate-100 pb-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div>
-                    <h2 className="text-2xl font-bold text-slate-800">Összeszerelés & Csatlakozás</h2>
-                    <p className="text-slate-500 mt-1">Kövesd a lépéseket a gép alapvető bekötéséhez!</p>
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-800">Összeszerelés & Csatlakozás</h2>
+                    <p className="text-sm text-slate-500 mt-1">Kövesd a lépéseket a gép alapvető bekötéséhez!</p>
                 </div>
                 <div className="flex items-center gap-2 w-full md:w-64">
                     <div className={`h-2 flex-1 rounded-full transition-colors ${phase !== 'safety' ? 'bg-teal-500' : 'bg-slate-200'}`} />
@@ -93,13 +93,13 @@ export default function AssemblyMinigame() {
                     <motion.div
                         key="safety"
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                        className="max-w-2xl mx-auto py-8"
+                        className="max-w-2xl mx-auto py-4 sm:py-8"
                     >
-                        <div className="bg-red-50 border border-red-200 rounded-2xl p-6 md:p-8 mb-8 shadow-sm">
-                            <h3 className="text-xl font-bold text-red-800 mb-4 flex items-center gap-2">
-                                <span className="text-2xl">⚠️</span> Labor Biztonsági Szabályok
+                        <div className="bg-red-50 border border-red-200 rounded-2xl p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-sm">
+                            <h3 className="text-lg sm:text-xl font-bold text-red-800 mb-4 flex items-center gap-2">
+                                <span className="text-xl sm:text-2xl">⚠️</span> Labor Biztonsági Szabályok
                             </h3>
-                            <p className="text-red-700/90 text-sm mb-6">
+                            <p className="text-red-700/90 text-xs sm:text-sm mb-6">
                                 Mielőtt hozzáérnél a géphez, kérjük olvasd el és igazold vissza a legfontosabb biztonsági előírásokat! A nyomtatóban mozgó, becsípődés-veszélyes és forró alkatrészek is találhatók.
                             </p>
                             <div className="space-y-4">
