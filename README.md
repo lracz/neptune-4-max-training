@@ -2,6 +2,8 @@
 
 Egy interaktív, gamifikált oktatóalkalmazás, amely lépésről lépésre vezeti végig a felhasználókat az **Elegoo Neptune 4 Max** 3D nyomtató használatának alapjain. A projekt célja, hogy a laboratóriumi környezetben a hallgatók önállóan, mégis biztonságosan sajátíthassák el a gép kezelését.
 
+**🔗 Élő demó:** [neptune-4-max-training.vercel.app](https://neptune-4-max-training.vercel.app/)
+
 ![App Screenshot](https://placehold.co/1200x600/1e293b/white?text=Neptune+4+Max+Training+App)
 
 ## 🌟 Főbb Jellemzők
@@ -50,7 +52,7 @@ A projekt optimalizálva van **Vercel** vagy bármilyen statikus tárhelyre tör
 
 ## 📖 Felhasználás a laborban
 A nyomtatókra érdemes **QR kódot** ragasztani, amely a következő paraméterrel nyitja meg az appot:
-`https://linked-app.com/?printer_id=GEP-01`
+`https://neptune-4-max-training.vercel.app/?printer_id=GEP-01`
 
 ## ✍️ Készítette
 
